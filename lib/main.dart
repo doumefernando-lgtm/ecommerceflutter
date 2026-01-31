@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (_) => CartProvider(),
-  child:AppEcommerce() ,
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: AppEcommerce(),
+    ),
+  );
 }
 
 class AppEcommerce extends StatefulWidget {

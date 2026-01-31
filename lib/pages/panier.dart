@@ -1,3 +1,4 @@
+import 'package:appecommerce/pages/paiement.dart';
 import 'package:appecommerce/widget/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +15,6 @@ class _PanierPageState extends State<PanierPage> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Mon panier"),
-        backgroundColor: Colors.orange,
-      ),
       body: cart.items.isEmpty
           ? Center(child: Text("Votre Pnier est vide"))
           : Column(
@@ -106,7 +103,14 @@ class _PanierPageState extends State<PanierPage> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.orange,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PaiementPage(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             "Passer à la caisse",
                             style: TextStyle(fontSize: 18),
