@@ -3,24 +3,30 @@ import 'package:flutter/material.dart';
 class Input extends StatelessWidget {
   final String label;
   final String hint;
+  final TextEditingController controller;
 
-  const Input({super.key, required this.label, required this.hint});
+  const Input({
+    super.key,
+    required this.label,
+    required this.hint,
+    required this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       child: TextFormField(
-        style: TextStyle(fontSize: 10),
+        controller: controller,
+        style: const TextStyle(fontSize: 14),
         decoration: InputDecoration(
-          label: Text(label),
+          labelText: label,
           hintText: hint,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         ),
-
         validator: (value) {
-          if (value == null || value.isEmpty) {
-            return "veuillez saisir votre" + label;
+          if (value == null || value.trim().isEmpty) {
+            return "Veuillez saisir votre $label";
           }
           return null;
         },

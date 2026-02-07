@@ -18,7 +18,10 @@ class _ProduitDetailsPageState extends State<ProduitDetailsPage> {
   Widget build(BuildContext context) {
     String image = widget.product['image_url'] ?? "assets/images/frigo.jpg";
     return Scaffold(
-      appBar: AppBar(title: Text(widget.product["name"])),
+      appBar: AppBar(
+        title: Text(widget.product["name"]),
+        backgroundColor: Colors.blue,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -32,6 +35,7 @@ class _ProduitDetailsPageState extends State<ProduitDetailsPage> {
                     Image.asset(image, fit: BoxFit.contain),
               ),
             ),
+            const Divider(),
             SizedBox(height: 10),
             Text(
               widget.product["name"],

@@ -6,7 +6,7 @@ class CartProvider extends ChangeNotifier {
 
   void addProduct(Map<String, dynamic> product, int quantite) {
     final index = _items.indexWhere(
-      (e) => e["product"]["name"] == product["name"], // plus sûr que id
+      (e) => e["product"]["name"] == product["name"], 
     );
     if (index >= 0) {
       _items[index]["quantite"] += quantite;

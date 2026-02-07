@@ -1,6 +1,7 @@
 import 'package:appecommerce/pages/compte.dart';
 import 'package:appecommerce/pages/panier.dart';
 import 'package:appecommerce/pages/product.dart';
+import 'package:appecommerce/services/firebase/auth.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,11 +13,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+  final authService = Auth();
 
   final List<Widget> _pages = [
     const Product(),
     const PanierPage(),
-    const Compte(),
+    const ComptePage(),
   ];
 
   final List<String> _titles = ["Accueil", "Mon Panier", "Profil"];

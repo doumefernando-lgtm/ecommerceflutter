@@ -1,12 +1,16 @@
-import 'package:appecommerce/pages/home.dart';
+import 'package:appecommerce/firebase_options.dart';
+import 'package:appecommerce/pages/splash.dart';
 import 'package:appecommerce/widget/cart_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ChangeNotifierProvider(
-      create: (_) => CartProvider(),
+      create: (context) => CartProvider(),
       child: AppEcommerce(),
     ),
   );
@@ -26,7 +30,7 @@ class _AppEcommerceState extends State<AppEcommerce> {
       debugShowCheckedModeBanner: false,
       title: "App ecommerce",
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.orange)),
-      home: Home(),
+      home: SplashScreen(),
     );
   }
 }
